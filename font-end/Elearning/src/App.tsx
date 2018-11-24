@@ -16,6 +16,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import Slash from './screen/Slash';
+import Login from './screen/account/Login';
 
 type Props = {};
 type State = {};
@@ -64,7 +65,8 @@ export default class App extends Component<Props> {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <Slash />
+                {/* <Slash /> */}
+                <Login />
             </View>
         );
     }

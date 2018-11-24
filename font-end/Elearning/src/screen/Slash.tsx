@@ -50,7 +50,7 @@ export default class Slash extends Component<Props, State> {
                     {
                         distanceImage !== 0 ?
                             <Text style={[styles.textContent, { bottom: distanceImage }]}>
-                                {I18n.t('login.title')}
+                                {I18n.t('slash.title')}
                             </Text>
                             : null
                     }
