@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput, TouchableOpacity, StyleSheet, ViewStyle, TextStyle, ImageStyle, KeyboardAvoidingView } from 'react-native';
 import { Icon } from 'react-native-elements';
-import StarRating from 'react-native-star-rating';
+const { StarRating } = require('react-native-star-rating');
 import defaultStyles from '../styles/default.style';
 
 
@@ -33,20 +33,20 @@ type Style = {
 
 export default class InputBase extends Component<Props, State> {
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
             value: null,
-            secureText: null
+            secureText: false
         }
     }
 
-    onChangeText(value) {
+    onChangeText(value: any) {
         console.log('text input base', value)
         this.setState({ value })
     }
 
-    onStarRatingPress(value) {
+    onStarRatingPress(value: any) {
         console.log('rating input base', value)
         this.setState({ value })
     }
@@ -99,8 +99,8 @@ export default class InputBase extends Component<Props, State> {
                     fullStar={'ios-star'}
                     halfStar={'ios-star-half'}
                     iconSet={'Ionicons'}
-                    rating={this.props.disabled && this.props.value ? Number.parseInt(this.props.value) : this.state.value ? Number.parseInt(this.state.value) : 0}
-                    selectedStar={value => this.onStarRatingPress(value)}
+                    rating={this.props.disabled && this.props.value ? parseInt(this.props.value) : this.state.value ? parseInt(this.state.value) : 0}
+                    selectedStar={(value: any) => this.onStarRatingPress(value)}
                     fullStarColor={defaultStyles.Colors.Yellow}
                     halfStarColor={defaultStyles.Colors.Yellow}
                     starSize={this.props.starSize}
@@ -151,7 +151,8 @@ const styles = StyleSheet.create<Style>({
     },
     label: {
         padding: defaultStyles.Padding.Text,
-        paddingRight: defaultStyles.Padding.Right
+        paddingRight: defaultStyles.Padding.Right,
+        width: '40%'
     },
     showPasswordIcon: {
         position: 'absolute',

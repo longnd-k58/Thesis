@@ -1,4 +1,4 @@
-export default defaultStyles = {
+const defaultStyles = {
     Color: {
         Primary: "#449EC3",
         Secondary: "#F58B1F",
@@ -39,3 +39,4 @@ export default defaultStyles = {
         Height: 40,
     }
 }
+export default defaultStyles;

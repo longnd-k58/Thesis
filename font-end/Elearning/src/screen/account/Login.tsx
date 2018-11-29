@@ -3,6 +3,8 @@ import { Text, View, Image, TouchableOpacity, ScrollView, StyleSheet, ViewStyle,
 import InputBase from '../../components/input.base';
 import { Button } from 'react-native-elements';
 import I18n from '../../i18n/index';
+import styles from '../../styles/account/login.style';
+
 
 export interface Props {
 
@@ -13,20 +15,16 @@ export interface State {
 };
 
 type Style = {
-    container: ViewStyle,
-    imageStyle: ImageStyle,
     contentStyle: ViewStyle,
     inputStyle: ViewStyle,
-    buttonStyle: ViewStyle,
+    buttonViewStyle: ViewStyle,
     tabStyle: ViewStyle,
     textStyle: TextStyle,
-    titleStyle: TextStyle,
-    viewTitleStyle: ViewStyle
 };
 
 export default class Login extends Component<Props, State> {
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
 
@@ -49,29 +47,28 @@ export default class Login extends Component<Props, State> {
         return (
 
             <View style={styles.container}>
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 2 }}>
                     <Image
                         style={styles.imageStyle}
                         source={require("../../assets/Background.png")}
                     />
                 </View>
-                <View style={styles.contentStyle}>
+                <View style={stylesInternal.contentStyle}>
                     <View style={{ flex: 5, width: '100%' }}>
                         <View style={styles.viewTitleStyle}>
                             <Text style={styles.titleStyle}>{I18n.t('login.title')}</Text>
                         </View>
-
-                        <View style={styles.inputStyle}>
+                        <View style={stylesInternal.inputStyle}>
                             <InputBase
-                                label={I18n.t('login.username')}
-                                placeholder={I18n.t('login.plhUsername')}
+                                label={I18n.t('common.username')}
+                                placeholder={I18n.t('common.plh_username')}
                                 ref={"inputBase"}
 
                             // defaultValue={"abc"}
                             />
                             <InputBase
-                                label={I18n.t('login.password')}
-                                placeholder={I18n.t('login.plhPassword')}
+                                label={I18n.t('common.password')}
+                                placeholder={I18n.t('common.plh_password')}
                                 ref={"inputBase"}
                                 secureText={true}
                             // defaultValue={"abc"}
@@ -79,25 +76,25 @@ export default class Login extends Component<Props, State> {
                         </View>
 
                     </View>
-                    <View style={styles.buttonStyle}>
+                    <View style={stylesInternal.buttonViewStyle}>
                         <Button
-                            title={I18n.t('login.btnLogin')}
+                            title={I18n.t('login.btn_login')}
                             color='white'
-                            buttonStyle={{ backgroundColor: '#007AFF' }}
+                            buttonStyle={styles.buttonStyle}
                             containerViewStyle={{ width: '70%' }}
                             onPress={this.login.bind(this)}
                         />
                     </View>
-                    <View style={styles.tabStyle}>
+                    <View style={stylesInternal.tabStyle}>
                         <TouchableOpacity
                             onPress={this.forgot.bind(this)}
                         >
-                            <Text style={styles.textStyle}>{I18n.t('login.forgot')}</Text>
+                            <Text style={stylesInternal.textStyle}>{I18n.t('login.forgot')}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={this.create.bind(this)}
                         >
-                            <Text style={styles.textStyle}>{I18n.t('login.create')}</Text>
+                            <Text style={stylesInternal.textStyle}>{I18n.t('login.create')}</Text>
                         </TouchableOpacity>
                     </View>
                 </View >
@@ -106,26 +103,9 @@ export default class Login extends Component<Props, State> {
     }
 }
 
-const styles = StyleSheet.create<Style>({
-    container: {
-        flex: 1,
-        backgroundColor: '#ffffff'
-    },
-    imageStyle: {
-        resizeMode: 'contain',
-        height: '100%',
-        width: '100%'
-    },
-    viewTitleStyle: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    titleStyle: {
-        fontWeight: 'bold',
-    },
+const stylesInternal = StyleSheet.create<Style>({
     contentStyle: {
-        flex: 2,
+        flex: 3,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -133,7 +113,7 @@ const styles = StyleSheet.create<Style>({
         flex: 2,
         justifyContent: 'space-evenly'
     },
-    buttonStyle: {
+    buttonViewStyle: {
         flex: 2,
         width: '100%',
         alignItems: 'center',

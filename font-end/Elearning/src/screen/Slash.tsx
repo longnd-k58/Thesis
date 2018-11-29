@@ -13,7 +13,7 @@ type Style = {
     imageContent: ImageStyle;
 };
 export default class Slash extends Component<Props, State> {
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
             height: 0
@@ -23,7 +23,7 @@ export default class Slash extends Component<Props, State> {
      * Get height view of imageView
      * @param e 
      */
-    measureView(e) {
+    measureView(e: any) {
         this.setState({
             // x: e.nativeEvent.layout.x,
             // y: e.nativeEvent.layout.y,

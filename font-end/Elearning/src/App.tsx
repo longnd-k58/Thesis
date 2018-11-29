@@ -17,6 +17,8 @@ import {
 } from 'react-native';
 import Slash from './screen/Slash';
 import Login from './screen/account/Login';
+import ForgotPassword from './screen/account/ForgotPassword';
+import CreateAccount from './screen/account/CreateAccount';
 
 type Props = {};
 type State = {};
@@ -66,7 +68,9 @@ export default class App extends Component<Props> {
         return (
             <View style={{ flex: 1 }}>
                 {/* <Slash /> */}
-                <Login />
+                {/* <Login /> */}
+                <ForgotPassword />
+                {/* <CreateAccount /> */}
             </View>
         );
     }
