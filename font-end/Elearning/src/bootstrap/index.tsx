@@ -1,7 +1,7 @@
-import storesConfig from './storeConfig';
+import stores from "../stores/index.store";
 import bootstrap from './bootApp';
 
 export default function () {
-    const stores = storesConfig();
+    console.log('store: ', stores)
     return bootstrap(stores);
 }
