@@ -5,13 +5,9 @@ import styles from '../../styles/account/login.style';
 import InputBase from '../../components/input.base';
 import { Button } from 'react-native-elements';
 
-export interface Props {
+interface Props { };
 
-};
-
-export interface State {
-
-};
+interface State { };
 
 type Style = {
     inputStyle: ViewStyle,

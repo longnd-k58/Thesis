@@ -5,14 +5,9 @@ import { Button } from 'react-native-elements';
 import I18n from '../../i18n/index';
 import styles from '../../styles/account/login.style';
 
+interface Props { };
 
-export interface Props {
-
-};
-
-export interface State {
-
-};
+interface State { };
 
 type Style = {
     contentStyle: ViewStyle,

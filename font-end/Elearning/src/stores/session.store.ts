@@ -1,6 +1,5 @@
-import { observable, action, flow } from 'mobx';
+import { observable, action, flow, computed } from 'mobx';
 import { persist } from 'mobx-persist';
-
 
 class User {
     @persist @observable id = "";
@@ -38,15 +37,23 @@ class User {
 }
 
 export default class SessionStore {
-    @observable isLogined: boolean = false;
-    @persist @observable username = '';
+    @persist @observable username: string = '';
     @persist @observable app_token = '';
+    @observable status: string = 'loading';
     @persist('object', User) @observable user = new User();
 
 
     constructor() {
 
     }
+    /**
+     * Restore app
+     */
+    @action
+    restore() {
+        this.status = 'loading';
+    }
+
     /**
      * Open app
      */
@@ -55,9 +62,17 @@ export default class SessionStore {
 
     }
 
-    @action
-    login = flow(function* (username: string, password: string): any {
+    @computed
+    get isLogined() {
+        return this.app_token && this.app_token != '' && this.user.id && this.user.id != '';
+    }
 
+    @action
+    login = flow(function* (this: SessionStore, username: string, password: string): any {
+        console.log('this', this);
+        this.username = username;
+        this.status = 'logining';
+        //Call API if status true => change 'this.status = logined'
     })
 
     @action

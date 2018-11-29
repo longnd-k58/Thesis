@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, ImageStyle, ViewStyle, TextStyle } from 'react-native';
 import I18n from '../i18n/index';
 
-export interface Props { };
-export interface State {
+interface Props { };
+
+interface State {
     height: number
 };
-type Style = {
-    loginView: ViewStyle;
-    textContent: TextStyle;
-    imageView: ViewStyle;
-    imageContent: ImageStyle;
+
+interface Style {
+    loginView: ViewStyle,
+    textContent: TextStyle,
+    imageView: ViewStyle,
+    imageContent: ImageStyle,
 };
-export default class Slash extends Component<Props, State> {
+
+
+export default class Splash extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -56,7 +60,7 @@ export default class Slash extends Component<Props, State> {
                     }
                 </View>
                 <View style={{ flex: 1 }}></View>
-            </View >
+            </View>
         )
     }
 }

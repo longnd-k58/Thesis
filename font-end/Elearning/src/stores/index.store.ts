@@ -13,8 +13,6 @@ const hydrate = create({
 let session = new SessionStore();
 let ui = new UIStore(session);
 
-
-
 export default {
     SessionStore: session,
     UIStore: ui
