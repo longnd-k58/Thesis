@@ -1,5 +1,5 @@
 import { createStackNavigator } from 'react-navigation';
-import Splash from '../screen/Splash';
+import SplashScreen from '../screen/splash.screen';
 import CreateAccountScreen from '../screen/account/create_account.screen';
 import ForgotPasswordScreen from '../screen/account/forgot_password.screen';
 import LoginScreen from '../screen/account/login.screen';
@@ -25,7 +25,12 @@ const CreateAccount = {
     },
 };
 
-
+const Splash = {
+    screen: SplashScreen,
+    navigationOptions: {
+        header: null,
+    },
+};
 
 
 export const AuthStack = createStackNavigator(
