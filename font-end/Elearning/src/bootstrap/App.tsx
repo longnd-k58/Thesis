@@ -12,7 +12,7 @@ import {
     ViewStyle
 } from 'react-native';
 import { AuthStack, AuthStackWithSplash } from '../navigators/auth.navigator';
-// import AppNavigator from '../navigators/app.navigator';
+import AppNavigator from '../navigators/app.navigator';
 import store from '../stores/index.store';
 import { observer } from 'mobx-react';
 import UILoading from '../common/uiloading.common';
@@ -99,7 +99,7 @@ export default class App extends Component<Props, State> {
         }
         else {
             console.log('app')
-            // mainUI = <AppNavigator />
+            mainUI = <AppNavigator />
         }
         console.log('Main UI', mainUI)
         return (

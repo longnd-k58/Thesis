@@ -74,7 +74,7 @@ export default class SessionStore {
     get isLogined() {
         console.log('app_token: ', this.app_token, 'userid: ', this.user.id, 'return: ', this.app_token && this.app_token != '')
         // return this.app_token && this.app_token != '' && this.user.id && this.user.id != '';
-        return false;
+        return true;
     }
 
     @action
