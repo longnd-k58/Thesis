@@ -1,8 +1,32 @@
 import { createStackNavigator } from 'react-navigation';
 import Splash from '../screen/Splash';
-import CreateAccount from '../screen/account/CreateAccount';
-import ForgotPassword from '../screen/account/ForgotPassword';
-import Login from '../screen/account/Login';
+import CreateAccountScreen from '../screen/account/create_account.screen';
+import ForgotPasswordScreen from '../screen/account/forgot_password.screen';
+import LoginScreen from '../screen/account/login.screen';
+
+const Login = {
+    screen: LoginScreen,
+    navigationOptions: {
+        header: null,
+    },
+};
+
+const ForgotPassword = {
+    screen: ForgotPasswordScreen,
+    navigationOptions: {
+        header: null,
+    },
+};
+
+const CreateAccount = {
+    screen: CreateAccountScreen,
+    navigationOptions: {
+        header: null,
+    },
+};
+
+
+
 
 export const AuthStack = createStackNavigator(
     {

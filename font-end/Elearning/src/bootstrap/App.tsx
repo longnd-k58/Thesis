@@ -77,6 +77,7 @@ export default class App extends Component<Props, State> {
      */
     render() {
         let mainUI = null;
+        console.log('uistore: ', store.UIStore.shouldGotoMain)
         if (store.SessionStore.status == 'loading') {
             mainUI = <View style={innerStyles.loading}>
                 <ActivityIndicator
@@ -87,15 +88,14 @@ export default class App extends Component<Props, State> {
             </View>
         }
         else if (!store.UIStore.shouldGotoMain) {
-            if (store.UIStore.skipSplash) {
-                console.log('without splash')
-                mainUI = <AuthStack />
-            }
-            else {
-                console.log('splash')
-                mainUI = <AuthStackWithSplash />
-
-            }
+            // if (store.UIStore.skipSplash) {
+            console.log('without splash')
+            mainUI = <AuthStack />
+            // }
+            // else {
+            //     console.log('splash')
+            //     mainUI = <AuthStackWithSplash />
+            // }
         }
         else {
             console.log('app')

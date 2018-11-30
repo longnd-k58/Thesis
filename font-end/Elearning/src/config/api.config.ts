@@ -1,5 +1,6 @@
 export default {
     //APP KEY
+    domain: '',
     app_key: '',
 
 

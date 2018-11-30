@@ -4,8 +4,11 @@ import InputBase from '../../components/input.base';
 import { Button } from 'react-native-elements';
 import I18n from '../../i18n/index';
 import styles from '../../styles/account/login.style';
+import { NavigationScreenProp } from 'react-navigation';
 
-interface Props { };
+interface Props {
+    navigation: NavigationScreenProp<any, any>
+};
 
 interface State { };
 
@@ -30,17 +33,16 @@ export default class Login extends Component<Props, State> {
 
     }
 
-    forgot() {
-
+    navigateToForgotPassword() {
+        this.props.navigation.navigate('ForgotPassword');
     }
 
-    create() {
-
+    navigateToCreateAccount() {
+        this.props.navigation.navigate('CreateAccount');
     }
 
     render() {
         return (
-
             <View style={styles.container}>
                 <View style={{ flex: 2 }}>
                     <Image
@@ -82,12 +84,12 @@ export default class Login extends Component<Props, State> {
                     </View>
                     <View style={stylesInternal.tabStyle}>
                         <TouchableOpacity
-                            onPress={this.forgot.bind(this)}
+                            onPress={this.navigateToForgotPassword.bind(this)}
                         >
                             <Text style={stylesInternal.textStyle}>{I18n.t('login.forgot')}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={this.create.bind(this)}
+                            onPress={this.navigateToCreateAccount.bind(this)}
                         >
                             <Text style={stylesInternal.textStyle}>{I18n.t('login.create')}</Text>
                         </TouchableOpacity>

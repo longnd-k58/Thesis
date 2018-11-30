@@ -55,16 +55,26 @@ export default class SessionStore {
     }
 
     /**
-     * Open app
+     * Open app set status running
      */
     @action
     start() {
-
+        // console.log("Start:", this.domain, this.app_token);
+        // settingAppKey(this.domain, this.app_token);
+        this.status = 'running';
+        // autorun(() => {
+        //     if (this.app_token != '') {
+        //         console.log("Setting token for API:", this.domain, this.app_token);
+        //         settingAppKey(this.domain, this.app_token);
+        //     }
+        // })
     }
 
     @computed
     get isLogined() {
-        return this.app_token && this.app_token != '' && this.user.id && this.user.id != '';
+        console.log('app_token: ', this.app_token, 'userid: ', this.user.id, 'return: ', this.app_token && this.app_token != '')
+        // return this.app_token && this.app_token != '' && this.user.id && this.user.id != '';
+        return false;
     }
 
     @action

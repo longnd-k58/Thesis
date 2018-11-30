@@ -13,6 +13,10 @@ const hydrate = create({
 let session = new SessionStore();
 let ui = new UIStore(session);
 
+session.restore();
+hydrate('session', session).then(() => session.start());
+hydrate('ui', ui).then(() => console.log('ui has been hydrated'))
+
 export default {
     SessionStore: session,
     UIStore: ui

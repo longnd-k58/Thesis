@@ -70,6 +70,7 @@ export default class UIStore {
      */
     @computed
     get shouldGotoMain() {
+        console.log('session store:', this.SessionStore.isLogined)
         return this.SessionStore.isLogined
     }
 
