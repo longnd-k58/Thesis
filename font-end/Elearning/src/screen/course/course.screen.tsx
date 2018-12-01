@@ -30,7 +30,7 @@ export default class Course extends Component {
     render() {
         return (
             <View style={styles.container}>
-
+                <Text>Course Screen</Text>
             </View>
         )
     }

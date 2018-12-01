@@ -80,8 +80,7 @@ class DrawerContent extends Component<any, any> {
                 onPress={this.logOut.bind(this)}
             >
                 <Image
-                    // source={require("../assets/images/icons/sign_out.png")}
-                    source={require("../assets/mark_green.png")}
+                    source={require("../assets/ios-log-out.svg")}
                     style={stylesInternal.signOutIcon}
                 />
                 <Text style={stylesInternal.signOutText}>{I18n.t("common.sign_out")}</Text>
@@ -102,7 +101,8 @@ class DrawerContent extends Component<any, any> {
                     <Avatar
                         large
                         rounded
-                        source={{ uri: this.props.SessionStore.user.avatar }}
+                        source={this.props.SessionStore.user.avatar ? { uri: this.props.SessionStore.user.avatar } : require("../assets/default_profile.jpg")}
+                        // source={require("../assets/default_profile.jpg")}
                         activeOpacity={1}
                         // imageProps={{ resizeMode: "cover" }}
                         containerStyle={stylesInternal.avatarContainer}
@@ -151,6 +151,7 @@ const Drawer = createDrawerNavigator(
         Setting
     },
     {
+        drawerPosition: "right",
         contentComponent: withNavigation(DrawerContent),
     },
 );
