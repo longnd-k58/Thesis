@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from 'react-navigation';
 import React, { Component } from 'react';
 import HomeScreen from '../screen/home.screen';
+import MoreScreen from '../screen/more.screen';
 import CourseScreen from '../screen/course/course.screen';
 import Drawer from './drawer.navigator';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -35,16 +36,17 @@ const Course = {
 }
 
 const More = {
-    screen: Drawer,
+    // screen: Drawer,
+    screen: MoreScreen,
     navigationOptions: {
         header: null,
         tabBarIcon: ({ horizontal, tintColor }: any) => (
             <Ionicons name={'ios-more'} size={horizontal ? 20 : 25} color={tintColor} />
         ),
-        tabBarOnPress: ({ navigation }: any) => {
-            console.log('navigation', navigation);
-            navigation.openDrawer();
-        }
+        // tabBarOnPress: ({ navigation }: any) => {
+        //     console.log('navigation', navigation);
+        //     navigation.openDrawer();
+        // }
     },
 }
 
