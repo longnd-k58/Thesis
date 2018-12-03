@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ViewStyle, ImageStyle, Image } from 'react-native';
-import I18n from '../i18n/index';
-import styles from '../styles/account/login.style';
-import InputBase from '../components/input.base';
-import { Button } from 'react-native-elements';
+import CourseContainer from '../containers/course.container';
+import headerStyles from '../styles/header.style';
 
 interface Props { };
 
 interface State { };
 
 type Style = {
-    inputStyle: ViewStyle,
-    buttonViewStyle: ViewStyle
+    container: ViewStyle,
 };
 
 export default class Home extends Component {
+
+
+    static navigationOptions = ({ navigation }: any) => ({
+        drawerLabel: 'Danh sách khoá học',
+        headerTitle: 'Danh sách khoá học',
+        headerTintColor: '#fff',
+        headerTitleStyle: [
+            {
+                color: 'white',
+            },
+            headerStyles.navigatorHeaderWithoutTab
+        ],
+        headerStyle: headerStyles.headerStyle
+    })
+
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -22,29 +34,18 @@ export default class Home extends Component {
         }
     }
 
-    create() {
-
-    }
-
-
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Home Screen</Text>
+            <View style={stylesInternal.container}>
+                <CourseContainer root_navigation={this.props.navigation} />
             </View>
         )
     }
 }
 
 const stylesInternal = StyleSheet.create<Style>({
-    inputStyle: {
-        flex: 3,
-        justifyContent: 'space-evenly'
-    },
-    buttonViewStyle: {
-        flex: 2,
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'flex-start'
+
+    container: {
+
     },
 })
